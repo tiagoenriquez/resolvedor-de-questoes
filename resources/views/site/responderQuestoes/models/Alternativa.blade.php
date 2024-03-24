@@ -15,7 +15,7 @@
         constructor(id, texto, correta, justificativa) {
             this.id = id;
             this.texto = texto;
-            this.correta = correta;
+            this.correta = correta === 0 ? false : true;
             this.justificativa = justificativa;
             this.assinalada = false;
         }

@@ -20,25 +20,6 @@
             this.acertada = false;
         }
 
-        /**
-         * @param {object[]} alternativas
-         * @private
-         */
-        adicionarAlternativas(alternativas) {
-            let ids = alternativas.map(alternativa => alternativa.id);
-            for (let i = 1; i <= ids.length; i++) {
-                const idSorteado = ids[Math.floor(Math.random() * ids.length)];
-                const alternativaSorteada = alternativas.filter(alternativa => alternativa.id === idSorteado)[0];
-                this.alternativas.push(new Alternativa(
-                    i,
-                    alternativaSorteada.texto,
-                    alternativaSorteada.correta,
-                    alternativaSorteada.justificativa
-                ));
-                ids = ids.filter(id => id !== idSorteado);
-            }
-        }
-
         getAlternativas() {
             return this.alternativas;
         }
@@ -63,10 +44,30 @@
          * @param {number} id
          */
         responder(alternativaId) {
-            const alternativa = this.alternativas.filter(a => a.getId)[0];
+            const alternativa = this.alternativas.filter(a => a.getId() === alternativaId)[0];
             alternativa.assinalar();
             this.acertada = alternativa.isCorreta() ? true : false;
             this.respondida = true;
+        }
+
+        /**
+         * @param {object[]} alternativas
+         * @private
+         */
+        adicionarAlternativas(alternativas) {
+            let ids = alternativas.map(alternativa => alternativa.id);
+            const quantidadeDeIds = ids.length;
+            for (let i = 1; i <= quantidadeDeIds; i++) {
+                const idSorteado = ids[Math.floor(Math.random() * ids.length)];
+                const alternativaSorteada = alternativas.filter(alternativa => alternativa.id === idSorteado)[0];
+                this.alternativas.push(new Alternativa(
+                    i,
+                    alternativaSorteada.texto,
+                    alternativaSorteada.correta,
+                    alternativaSorteada.justificativa
+                ));
+                ids = ids.filter(id => id !== idSorteado);
+            }
         }
     }
 </script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Questao;
 use App\Models\Tag;
 use Exception;
 use Illuminate\Http\Request;
@@ -60,7 +61,7 @@ class TagController extends Controller
     }
 
     public function listar() {
-        return view('admin.tag.lista', ['tags' => DB::table('tags')->orderBy('nome')->get()]);
+        return view('admin.tag.lista', ['tags' => Tag::with('questoes')->get()]);
     }
 
     public function responderQuestoes(Request $request) {
@@ -73,7 +74,7 @@ class TagController extends Controller
 
     public function selecionar() {
         try {
-            return view('site.selecionarTag', ['tags' => DB::table('tags')->orderBy('nome')->get()]);
+            return view('site.selecionarTag', ['tags' => Tag::orderBy('nome')->get()]);
         } catch (Exception $exception) {
             return $this->mostrarErro($exception->getMessage());
         }

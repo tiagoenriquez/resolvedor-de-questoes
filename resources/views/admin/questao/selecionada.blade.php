@@ -53,7 +53,7 @@
         <thead>
             <tr>
                 <th>Correta</th>
-                <th>Justificativa</th><th colspan="2"></th>
+                <th>Texto da Alternativa</th><th colspan="2"></th>
             </tr>
         </thead>
         <tbody>
@@ -61,7 +61,7 @@
             @foreach($questao->alternativas as $alternativa)
 
             <tr>
-                <td>{{ $alternativa->correta === true ? 'Sim' : 'Não' }}</td>
+                <td>{{ $alternativa->correta === 1 ? 'Sim' : 'Não' }}</td>
                 <td>{{ substr($alternativa->texto, 0, 64) . ' [...]' }}</td>
                 <td>
                     <form action="{{ route('editar-alternativa', $alternativa->id) }}" method="get">

@@ -10,7 +10,13 @@
 
             @foreach($tags as $tag)
 
-            <option value="{{ $tag->id }}">{{ $tag->nome }}</option>
+            <option value="{{ $tag->id }}">{{ $tag->nome }}: 
+                <?php
+                $questoes = count($tag->questoes);
+                print($questoes);
+                $questoes > 1 ? print(' questões') : print(' questão');
+                ?>
+            </option>
 
             @endforeach
 

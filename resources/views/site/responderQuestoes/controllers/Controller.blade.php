@@ -1,18 +1,31 @@
 <script>
     class Controller {
-        /** @type {Prova} @private */ prova;
-
-        /**
-         * @param {Prova} prova
-         */
-        constructor(prova) {
-            this.prova = prova;
+        acessarProximaQuestao = () => {
+            if (prova.getProximaQuestao() !== undefined) ProximaQuestaoView();
+            else this.mostrarDadosDeDesempenho();
         }
 
-        acessarProximaQuestao() {
-            const questao = this.prova.getQuestoes().filter(questao => !questao.isRespondida())[0];
-            const nota = this.prova.getNota();
-            ProximaQuestaoView(this.prova);
+        listarQuestoesRespondidas = () => {
+            QuestoesRespondidasView();
+        }
+
+        mostrarDadosDeDesempenho = () => {
+            DesempenhoView();
+        }
+
+        /**
+         * @param {number} id
+         */
+        mostrarDetalhesDaQuestao = (id) => {
+            DetalhesDeQuestaoView(id);
+        }
+
+        /**
+         * @param {number} id
+         */
+        responderQuestao = (id) => {
+            prova.responderQuestao(id);
+            this.acessarProximaQuestao();
         }
     }
 </script>
