@@ -87,12 +87,21 @@
         height: 32px;
     }
 
+    img {
+        height: auto;
+        width: 512px;
+    }
+
     input, select {
         font-family: var(--familia-da-fonte);
         font-size: var(--tamanho-da-fonte);
         margin: var(--margem-grande);
         padding: var(--margem-para-texto);
         width: 256px;
+    }
+
+    input[type='file'] {
+        display: none;
     }
 
     label {

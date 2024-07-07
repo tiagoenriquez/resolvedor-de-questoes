@@ -12,6 +12,7 @@
 @include('site.responderQuestoes.views.components.Button')
 @include('site.responderQuestoes.views.components.Checkbox')
 @include('site.responderQuestoes.views.components.Heading')
+@include('site.responderQuestoes.views.components.Image')
 @include('site.responderQuestoes.views.components.MenuItem')
 @include('site.responderQuestoes.views.components.Paragraph')
 @include('site.responderQuestoes.views.components.Table')

@@ -17,7 +17,7 @@ class CreateAlternativasTable extends Migration
             $table->id();
             $table->text('texto');
             $table->boolean('correta');
-            $table->string('justificativa')->nullable(true);
+            $table->text('justificativa')->nullable(true);
             $table->foreignId('questao_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

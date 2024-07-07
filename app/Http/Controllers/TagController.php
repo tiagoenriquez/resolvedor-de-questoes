@@ -61,7 +61,7 @@ class TagController extends Controller
     }
 
     public function listar() {
-        return view('admin.tag.lista', ['tags' => Tag::with('questoes')->get()]);
+        return view('admin.tag.lista', ['tags' => Tag::with('questoes')->orderBy('nome')->get()]);
     }
 
     public function responderQuestoes(Request $request) {
