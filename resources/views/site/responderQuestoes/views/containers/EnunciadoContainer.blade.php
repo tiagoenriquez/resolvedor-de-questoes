@@ -7,7 +7,7 @@
         const container = document.createElement('div');
         container.className = 'enunciado';
         paragrafos.forEach((paragrafo) => {
-            const parte = paragrafo.split('.');
+            const parte = paragrafo.split("-img.");
             if (parte.length === 2) {
                 try {
                     container.appendChild(Image(`/images/${paragrafo}`), "Imagem do enunciado");

@@ -23,7 +23,7 @@ class Questao extends Model
     public function setImagemAttribute(UploadedFile $imagem) {
         $nomeOriginal = $imagem->getClientOriginalName();
         $extensao = $imagem->getClientOriginalExtension();
-        $nomeDaImagem = md5($imagem->getClientOriginalName() . strtotime("now")) . "." . $extensao;
+        $nomeDaImagem = md5($imagem->getClientOriginalName() . strtotime("now")) . "-img." . $extensao;
         $imagem->move(public_path("images"), $nomeDaImagem);
         $this->attributes['enunciado'] = str_replace($nomeOriginal, $nomeDaImagem, $this->attributes['enunciado']);
     }
