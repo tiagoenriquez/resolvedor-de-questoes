@@ -55,7 +55,7 @@ class QuestaoController extends Controller
         try {
             $questao = Questao::create($request->all());
             $questao->save();
-            return $this->listar();
+            return $this->selecionar(Questao::orderBy('created_at', 'desc')->first()->id);
         } catch (Exception $exception) {
             return $this->mostrarErro($exception->getMessage());
         }
@@ -63,6 +63,22 @@ class QuestaoController extends Controller
 
     public function listar() {
         return view('admin.questao.lista', ['questoes' => DB::table('questaos')->orderByDesc('created_at')->get()]);
+    }
+
+    public function procurar() {
+        return view('admin.questao.procura');
+    }
+
+    public function listarComTrecho(Request $request) {
+        try {
+            return view('admin.questao.lista', [
+                'questoes' => Questao::where('enunciado', 'like', '%' . $request->trecho . '%')
+                    ->orderByDesc('created_at')
+                    ->get()
+            ]);
+        } catch (Exception $exception) {
+            return $this->mostrarErro($exception->getMessage());
+        }
     }
 
     public function selecionar(int $id) {

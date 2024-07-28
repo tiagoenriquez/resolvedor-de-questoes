@@ -17,7 +17,8 @@ $itensDeMenu = [
     new ItemDeMenu('cadastrar-tag', 'Cadastrar Tag'),
     new ItemDeMenu('listar-tags', 'Listar Tags'),
     new ItemDeMenu('cadastrar-questao', 'Cadastrar Questão'),
-    new ItemDeMenu('listar-questoes', 'Listar Questões')
+    new ItemDeMenu('listar-questoes', 'Listar Questões'),
+    new ItemDeMenu('procurar-questao', 'Procurar Questão')
 ];
 
 ?>

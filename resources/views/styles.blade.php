@@ -129,6 +129,10 @@
         height: 100%;
     }
 
+    option:hover {
+        background-color: var(--azul-muito-escuro);
+    }
+
     p {
         font-family: var(--familia-da-fonte);
         font-size: var(--tamanho-da-fonte);

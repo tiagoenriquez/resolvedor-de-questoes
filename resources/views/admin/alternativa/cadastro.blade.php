@@ -24,7 +24,7 @@
                 @foreach($questao->alternativas as $alternativa)
 
                 <tr>
-                    <td>{{ $alternativa->correta ? 'Sim' : 'Não' }}</td>
+                    <td><input type="checkbox" class="checkbox" disabled @if($alternativa->correta === 1) checked @endif></td>
                     <td>{{ $alternativa->texto }}</td>
                 </tr>
 

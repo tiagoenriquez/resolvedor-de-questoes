@@ -36,10 +36,12 @@ Route::prefix('tag')->group(function() {
 Route::prefix('questao')->group(function() {
     Route::get('cadastrar', [QuestaoController::class, 'cadastrar'])->name('cadastrar-questao');
     Route::get('listar', [QuestaoController::class, 'listar'])->name('listar-questoes');
+    Route::get('procurar', [QuestaoController::class, 'procurar'])->name('procurar-questao');
     Route::get('editar/{id}', [QuestaoController::class, 'editar'])->name('editar-questao');
     Route::get('ameacar/{id}', [QuestaoController::class, 'ameacar'])->name('ameacar-questao');
     Route::get('selecionar/{id}', [QuestaoController::class, 'selecionar'])->name('selecionar-questao');
     Route::post('inserir', [QuestaoController::class, 'inserir'])->name('inserir-questao');
+    Route::post('com-trecho', [QuestaoController::class, 'listarComTrecho'])->name('questoes-com-trecho');
     Route::put('atualizar/{id}', [QuestaoController::class, 'atualizar'])->name('atualizar-questao');
     Route::delete('excluir/{id}', [QuestaoController::class, 'excluir'])->name('excluir-questao');
 });
