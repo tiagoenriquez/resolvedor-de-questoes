@@ -19,7 +19,7 @@
         </div>
         <div class="campo-de-digitacao">
             <label for="justificativa">Justificativa</label>
-            <textarea name="justificativa" id="justificativa" cols="64" rows="2">{{ $alternativa->justificativa }}</textarea>
+            <textarea name="justificativa" id="justificativa" cols="64" rows="4">{{ $alternativa->justificativa }}</textarea>
         </div>
         <input type="hidden" name="questao_id" value="{{ $alternativa->questao_id }}" />
         <button type="submit">Atualizar</button>

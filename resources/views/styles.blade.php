@@ -191,12 +191,33 @@
         background-color: rgb(255, 255, 191);
     }
 
+    .alternativa-correta {
+        align-self: center;
+        height: 32px;
+        width: 32px;
+        background-color: rgb(0, 128, 0);
+    }
+
+    .alternativa-errada {
+        align-self: center;
+        height: 32px;
+        width: 32px;
+        background-color: rgb(255, 0, 0);
+    }
+
     .alternativa-respondida-corretamente {
         background-color: rgb(191, 223, 191);
     }
 
     .alternativa-respondida-erroneamente {
         background-color: rgb(255, 191, 191);
+    }
+
+    .alternativa-td {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
     }
 
     .buttons {

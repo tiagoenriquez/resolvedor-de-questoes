@@ -61,7 +61,14 @@
             @foreach($questao->alternativas as $alternativa)
 
             <tr>
-                <td><input type="checkbox" class="checkbox" disabled @if ($alternativa->correta === 1) checked @endif ></td>
+                <td class="alternativa-td">
+                    @if ($alternativa->correta === 1)
+                    <div class="alternativa-correta"></div>
+                    @else
+                    <div class="alternativa-errada"></div>
+                    @endif
+                    </div>
+                </td>
                 <td>{{ substr($alternativa->texto, 0, 64) . ' [...]' }}</td>
                 <td>
                     <form action="{{ route('editar-alternativa', $alternativa->id) }}" method="get">
